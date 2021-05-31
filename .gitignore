@@ -56,3 +56,5 @@ typings/
 
 # Certificate files
 *.pem
+
+*.md
