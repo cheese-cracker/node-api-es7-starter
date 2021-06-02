@@ -1,9 +1,9 @@
 'use strict'
 
-import HealthController from './Health'
 import VersionController from './Version'
+import ImageController from './Image'
 
 export {
-  HealthController,
+  ImageController,
   VersionController
 }

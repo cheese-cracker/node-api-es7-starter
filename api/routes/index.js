@@ -1,14 +1,14 @@
 'use strict'
 
 import { ResponseBody, expressUtils } from '../helpers'
-import HealthRouter from './Health'
+import ImageRouter from './Image'
 import VersionRouter from './Version'
 
 const { middleware, resHandler } = expressUtils
 const { handleResponse } = resHandler
 
 const Routes = [
-  { path: '/health', router: HealthRouter },
+  { path: '/image', router: ImageRouter },
   { path: '/version', router: VersionRouter }
 ]
 

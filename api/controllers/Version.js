@@ -1,17 +1,36 @@
 'use strict'
 
 import { ResponseBody } from '../helpers'
-import { VersionModel } from '../models'
+import {generateGetUrl, generatePutUrl} from '../helpers/awsPresigner'
 
-const VersionController = {
-  get
+const ImageController = {
+    findById,
+    create,
+    listNItems,
 }
 
-export default VersionController
-
-async function get (request, response, next) {
-  const data = await VersionModel.get()
+async function findById (request, response, next) {
+  // Dunno if req.query.Key is allows
+  const data = await generateGetUrl(req.query.Key)
   const responseBody = new ResponseBody(200, 'Version Check Successful', data)
   response.body = responseBody
   process.nextTick(next)
 }
+
+async function create (request, response, next) {
+  const {Key, ContentType} = req.query
+  const data = await generatePutUrl(Key, ContentType)
+  const responseBody = new ResponseBody(200, 'Version Check Successful', data)
+  response.body = responseBody
+  process.nextTick(next)
+}
+
+async function listNItems (request, response, next) {
+  const {Key, ContentType} = req.query
+  const data = await generatePutUrl(Key, ContentType)
+  const responseBody = new ResponseBody(200, 'Version Check Successful', data)
+  response.body = responseBody
+  process.nextTick(next)
+}
+ 
+export default ImageController
